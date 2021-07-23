@@ -1,17 +1,21 @@
 package vehiculo;
 
 import java.util.ArrayList;
+import persona.TitularVehicle;
 
 public abstract class Vehiculo {
 
 	// Atributos del ovjeto vehiculo
-	protected String matricula, marca, color;
+	protected String matricula, marca, color, titular;
+	protected ArrayList<TitularVehicle> conductores;
 
 	// Constructor por defecto del objeto vehiculo.
 	public Vehiculo() {
 		matricula = "";
 		marca = "";
 		color = "";
+		titular = "";
+		conductores = null;
 	}
 
 	// Constructor con todos los atributos para los objetos vehiculo.
@@ -19,13 +23,13 @@ public abstract class Vehiculo {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.color = color;
+		titular = "";
+		conductores = null;
 
 	}
 
 	// Metodo encargado de añadirle los ejes a los vehiculos.
 	protected abstract Rueda[] generarRuedas(String marca, double diametro);
-	
-	public abstract ArrayList<String> licenciaVehiculo();
 
 	// Zona de getters y setters
 	public String getMatricula() {

@@ -2,14 +2,14 @@ package main;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import persona.Persona;
+import persona.TitularVehicle;
 import vehiculo.Vehiculo;
 
 public class M03APP {
 
 	public static void main(String[] args) {
 		ArrayList<Vehiculo> vList = new ArrayList<>();
-		ArrayList<Persona> pList = new ArrayList<>();
+		ArrayList<TitularVehicle> pList = new ArrayList<>();
 
 		boolean m = false;
 

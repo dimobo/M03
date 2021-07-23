@@ -1,6 +1,7 @@
 package vehiculo;
 
 import java.util.ArrayList;
+import persona.TitularVehicle;
 
 public class Bike extends Vehiculo {
 
@@ -20,6 +21,28 @@ public class Bike extends Vehiculo {
 		super(matricula, marca, color);
 		this.delantera = generarRuedas(marcaRueda1, diametroRueda1);
 		this.trasera = generarRuedas(marcaRueda2, diametroRueda2);
+	}
+
+	// Constructor con todos los atributos de Bike y titulares
+
+	public Bike(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
+			String marcaRueda2, double diametroRueda2, String titular) {
+		super(matricula, marca, color);
+		this.delantera = generarRuedas(marcaRueda1, diametroRueda1);
+		this.trasera = generarRuedas(marcaRueda2, diametroRueda2);
+		this.titular = titular;
+		this.conductores = null;
+	}
+
+	// Constructor con todos los atributos de Bike , titulares y array de
+	// conductores.
+	public Bike(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
+			String marcaRueda2, double diametroRueda2, String titular, ArrayList<TitularVehicle> conductores) {
+		super(matricula, marca, color);
+		this.delantera = generarRuedas(marcaRueda1, diametroRueda1);
+		this.trasera = generarRuedas(marcaRueda2, diametroRueda2);
+		this.titular = titular;
+		this.conductores = conductores;
 
 	}
 
@@ -31,14 +54,13 @@ public class Bike extends Vehiculo {
 		eje[0] = new Rueda(marca, diametro);
 		return eje;
 	}
-	
+
 	// Listado de las licencias validas para conducir una bike.
-	@Override
-	public ArrayList<String> licenciaVehiculo() {
-		
+	public static ArrayList<String> licenciaVehiculo() {
+
 		ArrayList<String> licencia = new ArrayList<>();
 		licencia.add("");
-		
+
 		return licencia;
 	}
 
@@ -47,7 +69,8 @@ public class Bike extends Vehiculo {
 	public String toString() {
 
 		return "\nMarca de la bike: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
-				+ "\nRuedas:\nDelantera: " + delantera[0].toString() + "\nTrasera: " + trasera[0].toString() + "\n\n";
+				+ "\nRuedas:\nDelantera: " + delantera[0].toString() + "\nTrasera: " + trasera[0].toString()
+				+ "\nTitular del vehiculo: " + titular + "\nConductores del vehiculo" + conductores.toString() + "\n\n";
 	}
 
 	// Getters y setters.

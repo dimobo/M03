@@ -2,6 +2,8 @@ package vehiculo;
 
 import java.util.ArrayList;
 
+import persona.TitularVehicle;
+
 public class Camion extends Vehiculo {
 	// Atributos de la clase camion
 	private Rueda[] ejeDelantero, ejeMedio, ejeTrasero;
@@ -24,6 +26,30 @@ public class Camion extends Vehiculo {
 		this.ejeTrasero = generarRuedas(marcaRueda3, diametroRueda3);
 	}
 
+	// Constructor con todos los atributos para un camion y titulares.
+	public Camion(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
+			String marcaRueda2, double diametroRueda2, String marcaRueda3, double diametroRueda3, String titular,
+			ArrayList<TitularVehicle> conductores) {
+		super(matricula, marca, color);
+		this.ejeDelantero = generarRuedas(marcaRueda1, diametroRueda1);
+		this.ejeMedio = generarRuedas(marcaRueda2, diametroRueda2);
+		this.ejeTrasero = generarRuedas(marcaRueda3, diametroRueda3);
+		this.titular = titular;
+		this.conductores = conductores;
+	}
+
+	// Constructor con todos los atributos para un camion, titulares y array de
+	// conductores.
+	public Camion(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
+			String marcaRueda2, double diametroRueda2, String marcaRueda3, double diametroRueda3, String titular) {
+		super(matricula, marca, color);
+		this.ejeDelantero = generarRuedas(marcaRueda1, diametroRueda1);
+		this.ejeMedio = generarRuedas(marcaRueda2, diametroRueda2);
+		this.ejeTrasero = generarRuedas(marcaRueda3, diametroRueda3);
+		this.titular = titular;
+		this.conductores = null;
+	}
+
 	// Metodo generarRuedas sobreescrito para el objeto camion.
 	@Override
 	protected Rueda[] generarRuedas(String marca, double diametro) {
@@ -40,47 +66,45 @@ public class Camion extends Vehiculo {
 				+ "\nEje delantero:\n1r Rueda: " + ejeDelantero[0].toString() + "\n2n Rueda: "
 				+ ejeDelantero[1].toString() + "\nEje medio:\n1r Rueda: " + ejeMedio[0].toString() + "\n2n Rueda: "
 				+ ejeMedio[1].toString() + "\nEje trasero:\n1r Rueda: " + ejeTrasero[0].toString() + "\n2n Rueda: "
-				+ ejeTrasero[1].toString() + "\n\n";
+				+ ejeTrasero[1].toString() + "\nTitular del vehiculo: " + titular + "\nConductores del vehiculo"
+				+ conductores.toString() + "\n\n";
 	}
-	
+
 	// Listado de las licencias validas para conducir un camion.
-		@Override
-		public ArrayList<String> licenciaVehiculo() {
-			
-			ArrayList<String> licencia = new ArrayList<>();
-			licencia.add("C1");
-			licencia.add("C");
-			licencia.add("C1+E");
-			licencia.add("C+E");
-			
-			return licencia;
-		}
+	public static ArrayList<String> licenciaVehiculo() {
 
-		// Zona de getters y setters.
-		public Rueda[] getEjeDelantero() {
-			return ejeDelantero;
-		}
+		ArrayList<String> licencia = new ArrayList<>();
+		licencia.add("C1");
+		licencia.add("C");
+		licencia.add("C1+E");
+		licencia.add("C+E");
 
-		public void setEjeDelantero(Rueda[] ejeDelantero) {
-			this.ejeDelantero = ejeDelantero;
-		}
+		return licencia;
+	}
 
-		public Rueda[] getEjeMedio() {
-			return ejeMedio;
-		}
+	// Zona de getters y setters.
+	public Rueda[] getEjeDelantero() {
+		return ejeDelantero;
+	}
 
-		public void setEjeMedio(Rueda[] ejeMedio) {
-			this.ejeMedio = ejeMedio;
-		}
+	public void setEjeDelantero(Rueda[] ejeDelantero) {
+		this.ejeDelantero = ejeDelantero;
+	}
 
-		public Rueda[] getEjeTrasero() {
-			return ejeTrasero;
-		}
+	public Rueda[] getEjeMedio() {
+		return ejeMedio;
+	}
 
-		public void setEjeTrasero(Rueda[] ejeTrasero) {
-			this.ejeTrasero = ejeTrasero;
-		}
-		
-		
+	public void setEjeMedio(Rueda[] ejeMedio) {
+		this.ejeMedio = ejeMedio;
+	}
+
+	public Rueda[] getEjeTrasero() {
+		return ejeTrasero;
+	}
+
+	public void setEjeTrasero(Rueda[] ejeTrasero) {
+		this.ejeTrasero = ejeTrasero;
+	}
 
 }

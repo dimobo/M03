@@ -3,14 +3,13 @@ package main;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import persona.Licencia;
-import persona.Persona;
 import persona.TitularVehicle;
 import vehiculo.Vehiculo;
 
 public class MenuPersonas {
 
 	// este es el menu para cuando pasamos a gestionar personas.
-	public static void menu(ArrayList<Vehiculo> vList, ArrayList<Persona> pList) {
+	public static void menu(ArrayList<Vehiculo> vList, ArrayList<TitularVehicle> pList) {
 
 		boolean m = false;
 
@@ -21,8 +20,8 @@ public class MenuPersonas {
 			// En este caso generaremos un titular.
 			case 1:
 				crearTitular(pList);
-				
-				
+				MenuVehiculos.generarVehiculo(vList, pList);
+
 				break;
 
 			// En este caso mostraremos los titulares que tenemos generados.
@@ -43,9 +42,9 @@ public class MenuPersonas {
 	}
 
 	// Este metodo creara un titular a partir de los datos preguntados al usuario.
-	public static ArrayList<Persona> crearTitular(ArrayList<Persona> pList) {
+	public static ArrayList<TitularVehicle> crearTitular(ArrayList<TitularVehicle> pList) {
 		// Variables necesarias para crear titulares.
-		Persona p = new TitularVehicle();
+		TitularVehicle p = new TitularVehicle();
 		ArrayList<Licencia> lList = new ArrayList<>();
 		String nombre, apellidos, fechaNacimiento, tipo, nombreLicencia, fechaCaducidad;
 		int id = 1;
@@ -136,7 +135,7 @@ public class MenuPersonas {
 	}
 
 	// Este metodo leera la array de titulares que tenemos creadas.
-	public static void leerArrayTitular(ArrayList<Persona> pList) {
+	public static void leerArrayTitular(ArrayList<TitularVehicle> pList) {
 		System.out.println(pList.toString());
 	}
 

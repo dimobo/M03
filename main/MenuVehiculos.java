@@ -2,7 +2,8 @@ package main;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import persona.Persona;
+import persona.MiExcepcion;
+import persona.TitularVehicle;
 import vehiculo.Bike;
 import vehiculo.Camion;
 import vehiculo.Coche;
@@ -10,7 +11,7 @@ import vehiculo.Vehiculo;
 
 public class MenuVehiculos {
 	// Este es el menu para cuando entramos a generar vehiculos
-	public static void menu(ArrayList<Vehiculo> vList, ArrayList<Persona> pList) {
+	public static void menu(ArrayList<Vehiculo> vList, ArrayList<TitularVehicle> pList) {
 		boolean m = false;
 
 		// Este es el menu de vehiculos.
@@ -87,6 +88,132 @@ public class MenuVehiculos {
 			v = new Camion(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2,
 					marcaRueda3, diametroRueda3);
 			vList.add(v);
+			break;
+
+		default:
+			JOptionPane.showMessageDialog(null, "Valor introducido no válido.");
+			break;
+		}
+
+		return vList;
+	}
+
+	// Este metodo es el como el anterior pero sobre cargado para la pList.
+	public static ArrayList<Vehiculo> generarVehiculo(ArrayList<Vehiculo> vList, ArrayList<TitularVehicle> pList) {
+		Vehiculo v = new Bike();
+		String marca, matricula, color, marcaRueda1, marcaRueda2, marcaRueda3, tipo;
+		double diametroRueda1, diametroRueda2, diametroRueda3;
+
+		// Preguntaremos al usuario que tipo de vehiculo desea añadir.
+		switch ((int) pedirDouble("¿Que vehiculo desea crear?\n 1) Coche  2) Bike 3) Camion")) {
+		// Este caso se ejecutara cuando el usuario quiera añadir un coche.
+		case 1:
+			try {
+
+				for (int i = 0; i < pList.get(pList.size() - 1).getLicencias().size(); i++) {
+					// con la siguiente linea obtenemos el tipo de licencia de la array de
+					// licencias.
+					tipo = pList.get(pList.size() - 1).getLicencias().get(i).getLicencia().toUpperCase();
+
+					// Este if controlara si en algun momento se obtiene una licencia del tipo
+					// correcto, en caso contrario lanza la excepcion
+					if (Coche.licenciaVehiculo().contains(tipo)) {
+
+						marca = pedirTexto("Introduzca la marca del coche.");
+						matricula = comprobarMatricula(pedirTexto("Introduzca la matricula."));
+						color = pedirTexto("Introduzca el color del coche.");
+						marcaRueda1 = pedirTexto("Introduzca la marca para las ruedas del 1r eje.");
+						diametroRueda1 = comprobarDiametro(
+								pedirDouble("Introduzca el diametro de las ruedas del 1r eje."));
+						marcaRueda2 = pedirTexto("Introduzca la marca para las ruedas del 2n eje.");
+						diametroRueda2 = comprobarDiametro(
+								pedirDouble("Introduzca el diametro de las ruedas del 2n eje."));
+
+						switch ((int) pedirDouble("¿El titular sera el conductor?\n 1) si  2) no")) {
+						case 1:
+							
+							break;
+						case 2:
+
+							break;
+						default:
+							JOptionPane.showMessageDialog(null,
+									"El valor introducido no es correcto, se considerara que si es el conductor.");
+							
+							break;
+
+						}
+
+						v = new Coche(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
+								diametroRueda2);
+						vList.add(v);
+						return vList;
+
+					} else if (i == pList.get(pList.size() - 1).getLicencias().size() - 1) {
+						throw new MiExcepcion(404);
+					}
+				}
+
+			} catch (MiExcepcion e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+
+		// Este caso se ejecutara cuando el usuario quiera añadir una bike.
+		case 2:
+			// En este caso no hace falta controlar nada por que bike no requiere carnet.
+			marca = pedirTexto("Introduzca la marca de la bike.");
+			matricula = comprobarMatricula(pedirTexto("Introduzca la matricula."));
+			color = pedirTexto("Introduzca el color de la bike.");
+			marcaRueda1 = pedirTexto("Introduzca la marca para la rueda del 1r eje.");
+			diametroRueda1 = comprobarDiametro(pedirDouble("Introduzca el diametro de la rueda del 1r eje."));
+			marcaRueda2 = pedirTexto("Introduzca la marca para la rueda del 2n eje.");
+			diametroRueda2 = comprobarDiametro(pedirDouble("Introduzca el diametro de la rueda del 2n eje."));
+			v = new Bike(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2);
+			vList.add(v);
+			break;
+
+		// Este caso se ejecutara al añadir un camion.
+		case 3:
+			try {
+
+				for (int i = 0; i < pList.get(pList.size() - 1).getLicencias().size(); i++) {
+					// con la siguiente linea obtenemos el tipo de licencia de la array de
+					// licencias.
+					tipo = pList.get(pList.size() - 1).getLicencias().get(i).getLicencia().toUpperCase();
+
+					// Este if controlara si en algun momento se obtiene una licencia del tipo
+					// correcto, en caso contrario lanza la excepcion
+					if (Camion.licenciaVehiculo().contains(tipo)) {
+
+						marca = pedirTexto("Introduzca la marca del camion.");
+						matricula = comprobarMatricula(pedirTexto("Introduzca la matricula."));
+						color = pedirTexto("Introduzca el color del camion.");
+						marcaRueda1 = pedirTexto("Introduzca la marca para las ruedas del 1r eje.");
+						diametroRueda1 = comprobarDiametro(
+								pedirDouble("Introduzca el diametro de las ruedas del 1r eje."));
+						marcaRueda2 = pedirTexto("Introduzca la marca para las ruedas del 2n eje.");
+						diametroRueda2 = comprobarDiametro(
+								pedirDouble("Introduzca el diametro de las ruedas del 2n eje."));
+						marcaRueda3 = pedirTexto("Introduzca la marca para las ruedas del 3r eje.");
+						diametroRueda3 = comprobarDiametro(
+								pedirDouble("Introduzca el diametro de las ruedas del 3r eje."));
+
+						v = new Camion(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
+								diametroRueda2, marcaRueda3, diametroRueda3);
+						vList.add(v);
+						return vList;
+
+					} else if (i == pList.get(pList.size() - 1).getLicencias().size() - 1) {
+						throw new MiExcepcion(404);
+					}
+				}
+
+			} catch (MiExcepcion e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
 			break;
 
 		default:
