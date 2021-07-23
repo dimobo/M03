@@ -3,7 +3,7 @@ package vehiculo;
 public class Coche extends Vehiculo {
 
 	// Atributos de la clase coche
-	protected Rueda[] ejeDelantero, ejeTrasero;
+	private Rueda[] ejeDelantero, ejeTrasero;
 
 	// Constructor por defecto del objeto coche.
 	public Coche() {

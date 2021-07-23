@@ -2,7 +2,7 @@ package vehiculo;
 
 public class Camion extends Vehiculo {
 	// Atributos de la clase camion
-	protected Rueda[] ejeDelantero, ejeMedio, ejeTrasero;
+	private Rueda[] ejeDelantero, ejeMedio, ejeTrasero;
 
 	// Constructor por defecto del objeto camion.
 	public Camion() {

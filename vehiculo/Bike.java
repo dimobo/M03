@@ -3,7 +3,7 @@ package vehiculo;
 public class Bike extends Vehiculo {
 
 	// Atributos para las Bikes
-	Rueda[] delantera, trasera;
+	private Rueda[] delantera, trasera;
 
 	// Constructor por defecto.
 	public Bike() {
