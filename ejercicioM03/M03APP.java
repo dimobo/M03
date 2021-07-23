@@ -9,18 +9,21 @@ public class M03APP {
 		ArrayList<Vehiculo> vList = new ArrayList<>();
 		boolean m = false;
 
+		// Este es el menu principal.
 		while (m == false) {
-
 			switch ((int) pedirDouble(
 					"¿Qué acción desea realizar?\n1) Añadir vehiculo\n2) Mostrar vehiculos.\n3) Salir.")) {
+			// En este caso generaremos un vehiculo.
 			case 1:
 				generarVehiculo(vList);
 				break;
 
+			// En este caso mostraremos los vehiculos que tenemos generados.
 			case 2:
 				leerArrayVehiculo(vList);
 				break;
 
+			// Este caso nos permite salir del programa.
 			case 3:
 				m = true;
 				break;
@@ -37,11 +40,11 @@ public class M03APP {
 	// Este metodo es el encarregado de generar los vehiculos que quiera el usuario.
 	public static ArrayList<Vehiculo> generarVehiculo(ArrayList<Vehiculo> vList) {
 		Vehiculo v = new Bike();
-		String marca, matricula, color, marcaRueda1, marcaRueda2;
-		double diametroRueda1, diametroRueda2;
+		String marca, matricula, color, marcaRueda1, marcaRueda2, marcaRueda3;
+		double diametroRueda1, diametroRueda2, diametroRueda3;
 
 		// Preguntaremos al usuario que tipo de vehiculo desea añadir.
-		switch ((int) pedirDouble("¿Que vehiculo desea crear?\n 1) Coche  2) Bike")) {
+		switch ((int) pedirDouble("¿Que vehiculo desea crear?\n 1) Coche  2) Bike 3) Camion")) {
 		// Este caso se ejecutara cuando el usuario quiera añadir un coche.
 		case 1:
 			marca = pedirTexto("Introduzca la marca del coche.");
@@ -67,6 +70,23 @@ public class M03APP {
 			v = new Bike(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2);
 			vList.add(v);
 			break;
+			
+		// Este caso se ejecutara al añadir un camion.
+		case 3:
+			marca = pedirTexto("Introduzca la marca del camion.");
+			matricula = comprobarMatricula(pedirTexto("Introduzca la matricula."));
+			color = pedirTexto("Introduzca el color del camion.");
+			marcaRueda1 = pedirTexto("Introduzca la marca para las ruedas del 1r eje.");
+			diametroRueda1 = comprobarDiametro(pedirDouble("Introduzca el diametro de las ruedas del 1r eje."));
+			marcaRueda2 = pedirTexto("Introduzca la marca para las ruedas del 2n eje.");
+			diametroRueda2 = comprobarDiametro(pedirDouble("Introduzca el diametro de las ruedas del 2n eje."));
+			marcaRueda3 = pedirTexto("Introduzca la marca para las ruedas del 3r eje.");
+			diametroRueda3 = comprobarDiametro(pedirDouble("Introduzca el diametro de las ruedas del 3r eje."));
+			v = new Camion(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2,
+					marcaRueda3, diametroRueda3);
+			vList.add(v);
+			break;
+
 		default:
 			JOptionPane.showMessageDialog(null, "Valor introducido no válido.");
 			break;
@@ -78,9 +98,7 @@ public class M03APP {
 	// Este metodo leera nuestra array de vehiculos.
 	public static void leerArrayVehiculo(ArrayList<Vehiculo> vList) {
 
-		for (int i = 0; i < vList.size(); i++) {
-			System.out.println("Vehiculo " + (i + 1) + ": " + vList.toString()+"\n\n");
-		}
+			System.out.println(vList.toString());
 
 	}
 
@@ -102,7 +120,7 @@ public class M03APP {
 	public static double comprobarDiametro(double diametro) {
 
 		while (true) {
-			if (diametro > 0.4 && diametro < 4.0) {
+			if (diametro >= 0.4 && diametro <= 4.0) {
 				break;
 			} else {
 				diametro = pedirDouble("Introduzca el diametro de las ruedas.\nValores válidos de 0.4 a 4");

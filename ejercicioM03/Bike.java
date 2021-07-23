@@ -34,8 +34,8 @@ public class Bike extends Vehiculo {
 	@Override
 	public String toString() {
 
-		return "Marca del coche: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
-				+ "\nRuedas:\nDelantera: " + delantera[0].toString() + "\nTrasera: " + trasera[0].toString();
+		return "\nMarca de la bike: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
+				+ "\nRuedas:\nDelantera: " + delantera[0].toString() + "\nTrasera: " + trasera[0].toString() + "\n\n";
 	}
 
 	// Getters y setters.

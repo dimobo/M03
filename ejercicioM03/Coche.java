@@ -33,10 +33,10 @@ public class Coche extends Vehiculo {
 	// Metodo toString sobreescrito para vehiculos.
 	@Override
 	public String toString() {
-		return "Marca del coche: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
+		return "\nMarca del coche: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
 				+ "\nEje delantero:\n1r Rueda: " + ejeDelantero[0].toString() + "\n2n Rueda: "
 				+ ejeDelantero[1].toString() + "\nEje trasero:\n1r Rueda: " + ejeTrasero[0].toString() + "\n2n Rueda: "
-				+ ejeTrasero[1].toString();
+				+ ejeTrasero[1].toString() + "\n\n";
 	}
 
 	// Zona de getters y setters.
