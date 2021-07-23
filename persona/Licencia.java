@@ -3,12 +3,12 @@ package persona;
 public class Licencia {
 
 	private int id;
-	private String licencia, nombreCompleto, fechaCaducidad;
+	private String tipo, nombreCompleto, fechaCaducidad;
 
 	// Constructor por defecto licencia.
 	public Licencia() {
 		id = 0;
-		licencia = "";
+		tipo = "";
 		nombreCompleto = "";
 		fechaCaducidad = "";
 	}
@@ -16,7 +16,7 @@ public class Licencia {
 	// Constructor con todos los atributos para licencia.
 	public Licencia(int id, String licencia, String nombreCompleto, String fechaCaducidad) {
 		this.id = id;
-		this.licencia = licencia;
+		this.tipo = licencia;
 		this.nombreCompleto = nombreCompleto;
 		this.fechaCaducidad = fechaCaducidad;
 	}
@@ -31,11 +31,11 @@ public class Licencia {
 	}
 
 	public String getLicencia() {
-		return licencia;
+		return tipo;
 	}
 
 	public void setLicencia(String licencia) {
-		this.licencia = licencia;
+		this.tipo = licencia;
 	}
 
 	public String getNombreCompleto() {
