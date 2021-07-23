@@ -1,18 +1,23 @@
 package ejercicioM03;
 
 public class Rueda {
-	
+
 	// Atributos para el objeto rueda.
 	private String marca;
 	private double diametro;
 
-	
 	// Constructor por defecto.
 	public Rueda() {
 		marca = "";
 		diametro = 0.0;
 	}
-	
+
+	// Metodo toString sobreescrito para ruedas.
+	@Override
+	public String toString() {
+		return "Marca de la rueda: " + this.marca + ", Diametro de la rueda: " + this.diametro;
+	}
+
 	// Contructor con los parametros
 	public Rueda(String marca, double diametro) {
 		this.marca = marca;
@@ -35,7 +40,5 @@ public class Rueda {
 	public void setDiametro(double diametro) {
 		this.diametro = diametro;
 	}
-	
-	
 
 }

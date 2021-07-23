@@ -6,10 +6,11 @@ public class M03APP {
 
 	public static void main(String[] args) {
 
+		Vehiculo v = new Coche("algo", "si", "no", "potse", 0.6, "pot no", 0.9);
+
+		System.out.println(v.toString());
+
 	}
-	
-	
-	
 
 	// Este método nos pedirá que introduzcamos un texto y si hemos introducido una
 	// cadena vacía saltara un error conforme hemos introducido un valor no válido y
