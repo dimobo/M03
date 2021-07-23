@@ -21,6 +21,13 @@ public class Licencia {
 		this.fechaCaducidad = fechaCaducidad;
 	}
 
+	// Sobreescritura del metodo toString.
+	@Override
+	public String toString() {
+		return "\nLicencia: " + id + "\nTipo: " + tipo + "\nNombre completo: " + nombreCompleto
+				+ "\nFecha Caducidad: " + fechaCaducidad+"\n";
+	}
+
 	// Zona de getters y setters.
 	public int getId() {
 		return id;

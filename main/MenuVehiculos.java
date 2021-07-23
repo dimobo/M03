@@ -40,7 +40,7 @@ public class MenuVehiculos {
 	}
 
 	// Este metodo es el encarregado de generar los vehiculos que quiera el usuario.
-	private static ArrayList<Vehiculo> generarVehiculo(ArrayList<Vehiculo> vList) {
+	public static ArrayList<Vehiculo> generarVehiculo(ArrayList<Vehiculo> vList) {
 		Vehiculo v = new Bike();
 		String marca, matricula, color, marcaRueda1, marcaRueda2, marcaRueda3;
 		double diametroRueda1, diametroRueda2, diametroRueda3;
@@ -98,14 +98,14 @@ public class MenuVehiculos {
 	}
 
 	// Este metodo leera nuestra array de vehiculos.
-	private static void leerArrayVehiculo(ArrayList<Vehiculo> vList) {
+	public static void leerArrayVehiculo(ArrayList<Vehiculo> vList) {
 
 		System.out.println(vList.toString());
 
 	}
 
 	// Este metodo comprobara que se introduzca una matricula posible.
-	private static String comprobarMatricula(String matricula) {
+	public static String comprobarMatricula(String matricula) {
 
 		while (true) {
 			if (matricula.toUpperCase().matches("^[0-9]{4}[A-Z]{2}$")
@@ -119,7 +119,7 @@ public class MenuVehiculos {
 
 	// Este metodo comprobara que hemos introducido un diametro dentro del rango
 	// aceptado.
-	private static double comprobarDiametro(double diametro) {
+	public static double comprobarDiametro(double diametro) {
 
 		while (true) {
 			if (diametro >= 0.4 && diametro <= 4.0) {
@@ -134,7 +134,7 @@ public class MenuVehiculos {
 	}
 
 	// Este método es como el de pedir número, pero le podemos introducir un double.
-	private static double pedirDouble(String text) {
+	public static double pedirDouble(String text) {
 
 		double num = 0;
 
@@ -160,7 +160,7 @@ public class MenuVehiculos {
 	// Este método nos pedirá que introduzcamos un texto y si hemos introducido una
 	// cadena vacía saltara un error conforme hemos introducido un valor no válido y
 	// nos pedirá de nuevo un valor.
-	private static String pedirTexto(String text) {
+	public static String pedirTexto(String text) {
 
 		while (true) {
 			String dato = JOptionPane.showInputDialog(text);

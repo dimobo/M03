@@ -19,8 +19,15 @@ public class TitularVehicle extends Conductor {
 	public TitularVehicle(String nom, String cognoms, String fechaNacimiento, ArrayList<Licencia> licencias,
 			boolean seguro, boolean garaje) {
 		super(nom, cognoms, fechaNacimiento, licencias);
-		this.seguro=seguro;
-		this.garaje=garaje;
+		this.seguro = seguro;
+		this.garaje = garaje;
+	}
+
+	@Override
+	public String toString() {
+
+		return "\nNombre del titular: " + nom + "\nApellidos: " + cognoms + "\nFecha nacimiento: " + fechaNacimiento
+				+ "\n\n Licencias: " + licencias.toString() + "\n\nTiene seguro: " + seguro + "\nTiene garaje: " + garaje;
 	}
 
 	// Zona de getters y setters.
