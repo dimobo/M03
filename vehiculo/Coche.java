@@ -27,7 +27,7 @@ public class Coche extends Vehiculo {
 	
 	// Constructor con todos los atributos para un coche y titulares.
 		public Coche(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
-				String marcaRueda2, double diametroRueda2, String titular) {
+				String marcaRueda2, double diametroRueda2, TitularVehicle titular) {
 			super(matricula, marca, color);
 			this.ejeDelantero = generarRuedas(marcaRueda1, diametroRueda1);
 			this.ejeTrasero = generarRuedas(marcaRueda2, diametroRueda2);
@@ -37,7 +37,7 @@ public class Coche extends Vehiculo {
 
 	// Constructor con todos los atributos para un coche, titulares y array de titulares.
 	public Coche(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
-			String marcaRueda2, double diametroRueda2, String titular, ArrayList<TitularVehicle> conductores) {
+			String marcaRueda2, double diametroRueda2, TitularVehicle titular, ArrayList<TitularVehicle> conductores) {
 		super(matricula, marca, color);
 		this.ejeDelantero = generarRuedas(marcaRueda1, diametroRueda1);
 		this.ejeTrasero = generarRuedas(marcaRueda2, diametroRueda2);

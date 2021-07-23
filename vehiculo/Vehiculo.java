@@ -6,7 +6,8 @@ import persona.TitularVehicle;
 public abstract class Vehiculo {
 
 	// Atributos del ovjeto vehiculo
-	protected String matricula, marca, color, titular;
+	protected String matricula, marca, color;
+	protected TitularVehicle titular;
 	protected ArrayList<TitularVehicle> conductores;
 
 	// Constructor por defecto del objeto vehiculo.
@@ -14,7 +15,7 @@ public abstract class Vehiculo {
 		matricula = "";
 		marca = "";
 		color = "";
-		titular = "";
+		titular = null;
 		conductores = null;
 	}
 
@@ -23,7 +24,7 @@ public abstract class Vehiculo {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.color = color;
-		titular = "";
+		titular = null;
 		conductores = null;
 
 	}

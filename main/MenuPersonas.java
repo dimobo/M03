@@ -21,7 +21,6 @@ public class MenuPersonas {
 			case 1:
 				crearTitular(pList);
 				MenuVehiculos.generarVehiculo(vList, pList);
-
 				break;
 
 			// En este caso mostraremos los titulares que tenemos generados.

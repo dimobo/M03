@@ -103,6 +103,8 @@ public class MenuVehiculos {
 		Vehiculo v = new Bike();
 		String marca, matricula, color, marcaRueda1, marcaRueda2, marcaRueda3, tipo;
 		double diametroRueda1, diametroRueda2, diametroRueda3;
+		TitularVehicle t;
+		ArrayList<TitularVehicle> c = new ArrayList<>();
 
 		// Preguntaremos al usuario que tipo de vehiculo desea añadir.
 		switch ((int) pedirDouble("¿Que vehiculo desea crear?\n 1) Coche  2) Bike 3) Camion")) {
@@ -129,33 +131,38 @@ public class MenuVehiculos {
 						diametroRueda2 = comprobarDiametro(
 								pedirDouble("Introduzca el diametro de las ruedas del 2n eje."));
 
-						switch ((int) pedirDouble("¿El titular sera el conductor?\n 1) si  2) no")) {
-						case 1:
-							
-							break;
-						case 2:
+						// Con esta linia obtendremos el titular del vehiculo.
+						t = pList.get(pList.size() - 1);
 
-							break;
-						default:
-							JOptionPane.showMessageDialog(null,
-									"El valor introducido no es correcto, se considerara que si es el conductor.");
-							
-							break;
+						// Aqui entraremos a un menu para seguir añadiendo conductores.
+						while (true) {
+
+							// Este switch controlara la cantidad de conductores que queramos añadir.
+							switch ((int) pedirDouble("¿Quieres seguir añadiendo conductores?\n 1) No  2) Si")) {
+							case 1:
+								c.add(pList.get(pList.size() - 1));
+								v = new Coche(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
+										diametroRueda2, t, c);
+								vList.add(v);
+								return vList;
+							case 2:
+								c.add(pList.get(pList.size() - 1));
+								MenuPersonas.crearTitular(pList);
+								break;
+							default:
+								JOptionPane.showMessageDialog(null, "El valor introducido no es correcto.");
+								break;
+							}
 
 						}
-
-						v = new Coche(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
-								diametroRueda2);
-						vList.add(v);
-						return vList;
 
 					} else if (i == pList.get(pList.size() - 1).getLicencias().size() - 1) {
 						throw new MiExcepcion(404);
 					}
 				}
 
-			} catch (MiExcepcion e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
+			} catch (MiExcepcion ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage());
 			}
 
 			break;
@@ -170,11 +177,33 @@ public class MenuVehiculos {
 			diametroRueda1 = comprobarDiametro(pedirDouble("Introduzca el diametro de la rueda del 1r eje."));
 			marcaRueda2 = pedirTexto("Introduzca la marca para la rueda del 2n eje.");
 			diametroRueda2 = comprobarDiametro(pedirDouble("Introduzca el diametro de la rueda del 2n eje."));
-			v = new Bike(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2);
-			vList.add(v);
-			break;
 
-		// Este caso se ejecutara al añadir un camion.
+			// Con esta linia obtendremos el titular del vehiculo.
+			t = pList.get(pList.size() - 1);
+
+			// Aqui entraremos a un menu para seguir añadiendo conductores.
+			while (true) {
+
+				// Este switch controlara la cantidad de conductores que queramos añadir.
+				switch ((int) pedirDouble("¿Quieres seguir añadiendo conductores?\n 1) No  2) Si")) {
+				case 1:
+					c.add(pList.get(pList.size() - 1));
+					v = new Bike(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2, diametroRueda2, t,
+							c);
+					vList.add(v);
+					return vList;
+				case 2:
+					c.add(pList.get(pList.size() - 1));
+					MenuPersonas.crearTitular(pList);
+					break;
+				default:
+					JOptionPane.showMessageDialog(null, "El valor introducido no es correcto.");
+					break;
+				}
+
+			}
+
+			// Este caso se ejecutara al añadir un camion.
 		case 3:
 			try {
 
@@ -200,18 +229,38 @@ public class MenuVehiculos {
 						diametroRueda3 = comprobarDiametro(
 								pedirDouble("Introduzca el diametro de las ruedas del 3r eje."));
 
-						v = new Camion(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
-								diametroRueda2, marcaRueda3, diametroRueda3);
-						vList.add(v);
-						return vList;
+						// Con esta linia obtendremos el titular del vehiculo.
+						t = pList.get(pList.size() - 1);
+
+						// Aqui entraremos a un menu para seguir añadiendo conductores.
+						while (true) {
+
+							// Este switch controlara la cantidad de conductores que queramos añadir.
+							switch ((int) pedirDouble("¿Quieres seguir añadiendo conductores?\n 1) No  2) Si")) {
+							case 1:
+								c.add(pList.get(pList.size() - 1));
+								v = new Camion(matricula, marca, color, marcaRueda1, diametroRueda1, marcaRueda2,
+										diametroRueda2, marcaRueda3, diametroRueda3, t, c);
+								vList.add(v);
+								return vList;
+							case 2:
+								c.add(pList.get(pList.size() - 1));
+								MenuPersonas.crearTitular(pList);
+								break;
+							default:
+								JOptionPane.showMessageDialog(null, "El valor introducido no es correcto.");
+								break;
+							}
+
+						}
 
 					} else if (i == pList.get(pList.size() - 1).getLicencias().size() - 1) {
 						throw new MiExcepcion(404);
 					}
 				}
 
-			} catch (MiExcepcion e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
+			} catch (MiExcepcion ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage());
 			}
 
 			break;
