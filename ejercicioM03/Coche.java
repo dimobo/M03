@@ -15,7 +15,7 @@ public class Coche extends Vehiculo {
 	// Constructor con todos los atributos para un coche.
 	public Coche(String matricula, String marca, String color, String marcaRueda1, double diametroRueda1,
 			String marcaRueda2, double diametroRueda2) {
-		
+
 		super(matricula, marca, color);
 		this.ejeDelantero = generarRuedas(marcaRueda1, diametroRueda1);
 		this.ejeTrasero = generarRuedas(marcaRueda2, diametroRueda2);
@@ -33,10 +33,10 @@ public class Coche extends Vehiculo {
 	// Metodo toString sobreescrito para vehiculos.
 	@Override
 	public String toString() {
-		return "Marca del coche: " + this.marca + "\nMatricula: " + this.matricula + "\nColor: " + this.color
-				+ "\nEje delantero:\n1r Rueda: " + this.ejeDelantero[0].toString() + "\n2n Rueda: "
-				+ this.ejeDelantero[1].toString() + "\nEje trasero:\n1r Rueda: " + this.ejeTrasero[0].toString()
-				+ "\n2n Rueda: " + this.ejeTrasero[1].toString();
+		return "Marca del coche: " + marca + "\nMatricula: " + matricula + "\nColor: " + color
+				+ "\nEje delantero:\n1r Rueda: " + ejeDelantero[0].toString() + "\n2n Rueda: "
+				+ ejeDelantero[1].toString() + "\nEje trasero:\n1r Rueda: " + ejeTrasero[0].toString() + "\n2n Rueda: "
+				+ ejeTrasero[1].toString();
 	}
 
 	// Zona de getters y setters.
