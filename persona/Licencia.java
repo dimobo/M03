@@ -53,7 +53,5 @@ public class Licencia {
 	public void setFechaCaducidad(String fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
 	}
-	
-	
 
 }
