@@ -22,6 +22,7 @@ public class MenuPersonas {
 			case 1:
 				crearTitular(pList);
 				
+				
 				break;
 
 			// En este caso mostraremos los titulares que tenemos generados.
