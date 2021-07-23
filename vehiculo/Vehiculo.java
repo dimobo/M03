@@ -1,5 +1,7 @@
 package vehiculo;
 
+import java.util.ArrayList;
+
 public abstract class Vehiculo {
 
 	// Atributos del ovjeto vehiculo
@@ -22,6 +24,8 @@ public abstract class Vehiculo {
 
 	// Metodo encargado de añadirle los ejes a los vehiculos.
 	protected abstract Rueda[] generarRuedas(String marca, double diametro);
+	
+	public abstract ArrayList<String> licenciaVehiculo();
 
 	// Zona de getters y setters
 	public String getMatricula() {

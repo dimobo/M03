@@ -1,5 +1,7 @@
 package vehiculo;
 
+import java.util.ArrayList;
+
 public class Camion extends Vehiculo {
 	// Atributos de la clase camion
 	private Rueda[] ejeDelantero, ejeMedio, ejeTrasero;
@@ -40,5 +42,45 @@ public class Camion extends Vehiculo {
 				+ ejeMedio[1].toString() + "\nEje trasero:\n1r Rueda: " + ejeTrasero[0].toString() + "\n2n Rueda: "
 				+ ejeTrasero[1].toString() + "\n\n";
 	}
+	
+	// Listado de las licencias validas para conducir un camion.
+		@Override
+		public ArrayList<String> licenciaVehiculo() {
+			
+			ArrayList<String> licencia = new ArrayList<>();
+			licencia.add("C1");
+			licencia.add("C");
+			licencia.add("C1+E");
+			licencia.add("C+E");
+			
+			return licencia;
+		}
+
+		// Zona de getters y setters.
+		public Rueda[] getEjeDelantero() {
+			return ejeDelantero;
+		}
+
+		public void setEjeDelantero(Rueda[] ejeDelantero) {
+			this.ejeDelantero = ejeDelantero;
+		}
+
+		public Rueda[] getEjeMedio() {
+			return ejeMedio;
+		}
+
+		public void setEjeMedio(Rueda[] ejeMedio) {
+			this.ejeMedio = ejeMedio;
+		}
+
+		public Rueda[] getEjeTrasero() {
+			return ejeTrasero;
+		}
+
+		public void setEjeTrasero(Rueda[] ejeTrasero) {
+			this.ejeTrasero = ejeTrasero;
+		}
+		
+		
 
 }

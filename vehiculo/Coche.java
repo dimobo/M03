@@ -1,5 +1,7 @@
 package vehiculo;
 
+import java.util.ArrayList;
+
 public class Coche extends Vehiculo {
 
 	// Atributos de la clase coche
@@ -38,6 +40,17 @@ public class Coche extends Vehiculo {
 				+ ejeDelantero[1].toString() + "\nEje trasero:\n1r Rueda: " + ejeTrasero[0].toString() + "\n2n Rueda: "
 				+ ejeTrasero[1].toString() + "\n\n";
 	}
+	
+	// Listado de las licencias validas para conducir un coche.
+		@Override
+		public ArrayList<String> licenciaVehiculo() {
+			
+			ArrayList<String> licencia = new ArrayList<>();
+			licencia.add("B");
+			licencia.add("B + E");
+			
+			return licencia;
+		}
 
 	// Zona de getters y setters.
 	public Rueda[] getEjeDelantero() {

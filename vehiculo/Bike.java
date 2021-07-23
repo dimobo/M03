@@ -1,5 +1,7 @@
 package vehiculo;
 
+import java.util.ArrayList;
+
 public class Bike extends Vehiculo {
 
 	// Atributos para las Bikes
@@ -28,6 +30,16 @@ public class Bike extends Vehiculo {
 		Rueda[] eje = new Rueda[1];
 		eje[0] = new Rueda(marca, diametro);
 		return eje;
+	}
+	
+	// Listado de las licencias validas para conducir una bike.
+	@Override
+	public ArrayList<String> licenciaVehiculo() {
+		
+		ArrayList<String> licencia = new ArrayList<>();
+		licencia.add("");
+		
+		return licencia;
 	}
 
 	// Sobreescritura del metodo toString.
